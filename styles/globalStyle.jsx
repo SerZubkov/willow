@@ -33,8 +33,16 @@ export const GlobalStyle = createGlobalStyle`
   td { 
     padding: 0;
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: normal;
+  }
+
+  body {
+    background-color: #fff;
+    font-size: 16px;
+    color: #000;
+    overflow-x: hidden;
+    touch-action: auto;
   }
 
   table {
@@ -88,5 +96,58 @@ export const GlobalStyle = createGlobalStyle`
   abbr,
   acronym {
     border: 0;
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../static/fonts/Montserrat-Regular.woff') format('woff2');
+    font-display: fallback;
+  }
+
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Montserrat Medium'), local('Montserrat-Medium'), url('../static/fonts/Montserrat-Medium.woff') format('woff2');
+    font-display: fallback;
+  }
+
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Montserrat Bold'), local('Montserrat-Bold'), url('../static/fonts/Montserrat-Bold.woff') format('woff2');
+    font-display: fallback;
+  }
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto Regular'), local('Montserrat-Regular'), url('../static/fonts/RobotoRegular.woff') format('woff2');
+    font-display: fallback;
+  }
+
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Roboto Medium'), local('Montserrat-Medium'), url('../static/fonts/RobotoMedium.woff') format('woff2');
+    font-display: fallback;
+  }
+
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Bold'), local('Montserrat-Bold'), url('../static/fonts/RobotoBold.woff') format('woff2');
+    font-display: fallback;
   }
 `;
