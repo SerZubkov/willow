@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -35,6 +35,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
+    font-weight: 400;
   }
 
   body {
@@ -43,6 +44,11 @@ export const GlobalStyle = createGlobalStyle`
     color: #000;
     overflow-x: hidden;
     touch-action: auto;
+  }
+
+  html {
+    font-size: 62.5%;
+    line-height: 1.15;
   }
 
   table {
@@ -150,4 +156,9 @@ export const GlobalStyle = createGlobalStyle`
     src: local('Roboto Bold'), local('Montserrat-Bold'), url('../static/fonts/RobotoBold.woff') format('woff2');
     font-display: fallback;
   }
+`;
+
+export const AppStyle = styled.div`
+  padding-top: 57px;
+  position: relative;
 `;

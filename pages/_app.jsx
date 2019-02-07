@@ -9,7 +9,8 @@ import { Provider, useStaticRendering } from 'mobx-react';
 
 import * as getStores from '../stores';
 
-import { GlobalStyle } from '../styles/globalStyle';
+import Header from '../core/Header/Header';
+import { GlobalStyle, AppStyle } from '../styles/globalStyle';
 
 const isServer = !process.browser;
 
@@ -44,7 +45,10 @@ class MyApp extends App {
         <GlobalStyle />
         <Provider {...store}>
           <React.Fragment>
-            <Component {...pageProps} />
+            <AppStyle>
+              <Header />
+              <Component {...pageProps} />
+            </AppStyle>
           </React.Fragment>
         </Provider>
       </Container>
