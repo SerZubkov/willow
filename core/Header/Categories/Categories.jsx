@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { inject, observer } from 'mobx-react';
 
-import { List, Item } from './Categories.styles';
+import { List } from './Categories.styles';
+import Menu from './Menu/Menu';
+import Burger from './Burger/Burger';
 
-export default class Categories extends Component {
-  render() {
-    return (
-      <List>
-        <Item>Mens</Item>
-        <Item>Womens</Item>
-        <Item>Accessories</Item>
-      </List>
-    );
-  }
-}
+const CategoriesComponent = ({ categoriesStore: { categories } }) => {
+  return (
+    <List>
+      {typeof document !== 'undefined' && <Burger />}
+      {categories.map(({ id, name, data }) => (
+        <Menu key={id} data={data} name={name} />
+      ))}
+    </List>
+  );
+};
+
+export default inject('categoriesStore')(observer(CategoriesComponent));

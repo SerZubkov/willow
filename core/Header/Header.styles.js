@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { defaultStyle } from '../../styles/defaultStyle';
 
 export const Wrapper = styled.div`
-  position: fixed;
+  position: ${({ absoluteActive }) => (absoluteActive ? 'absolute' : 'fixed')};
   left: 0;
   right: 0;
-  top: 0;
-  width: 100%;
+  top: ${({ topBody }) => `${topBody}px`};
+  width: 100vw;
   height: 57px;
   display: flex;
   border-bottom: 1px solid ${defaultStyle.borderColor};
@@ -15,13 +15,38 @@ export const Wrapper = styled.div`
   padding: 0 ${defaultStyle.paddingBase};
   align-items: center;
   background-color: white;
+
+  @media (max-width: 1400px) {
+    padding: 0 ${defaultStyle.paddingMd};
+  }
+
+  @media (max-width: 990px) {
+    margin-top: 50px;
+    height: 50px;
+    border-bottom: 1px solid white;
+  }
 `;
 
 export const Logo = styled.div`
   width: 100px;
   height: 46px;
-  background-color: red;
   position: absolute;
   top: 6px;
   left: ${defaultStyle.paddingBase};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1400px) {
+    left: ${defaultStyle.paddingMd};
+  }
+
+  @media (max-width: 990px) {
+    height: 50px;
+    width: 100%;
+    left: 0;
+    top: -50px;
+    border-bottom: 1px solid ${defaultStyle.borderColor};
+    background-color: white;
+  }
 `;

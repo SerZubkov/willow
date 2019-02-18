@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Router from 'next/router';
 import ErrorPage from 'next/error';
 import App, { Container } from 'next/app';
@@ -10,7 +10,9 @@ import { Provider, useStaticRendering } from 'mobx-react';
 import * as getStores from '../stores';
 
 import Header from '../core/Header/Header';
-import { GlobalStyle, AppStyle } from '../styles/globalStyle';
+import Sidebar from '../core/Sidebar/Sidebar';
+import { GlobalStyle } from '../styles/globalStyle';
+import AppStyle from '../features/App/App';
 
 const isServer = !process.browser;
 
@@ -44,12 +46,14 @@ class MyApp extends App {
       <Container>
         <GlobalStyle />
         <Provider {...store}>
-          <React.Fragment>
+          <Sidebar>
             <AppStyle>
-              <Header />
-              <Component {...pageProps} />
+              <Fragment>
+                <Header />
+                <Component {...pageProps} />
+              </Fragment>
             </AppStyle>
-          </React.Fragment>
+          </Sidebar>
         </Provider>
       </Container>
     );

@@ -9,6 +9,15 @@ export const Wrapper = styled.div`
   height: 57px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 1400px) {
+    right: ${defaultStyle.paddingMd};
+  }
+
+  @media (max-width: 990px) {
+    height: 50px;
+    top: -50px;
+  }
 `;
 
 export const InputSearch = styled.input`
@@ -22,6 +31,10 @@ export const InputSearch = styled.input`
 
   &:focus {
     width: 125px;
+  }
+
+  @media (max-width: 990px) {
+    display: none;
   }
 `;
 

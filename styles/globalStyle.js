@@ -157,8 +157,3 @@ export const GlobalStyle = createGlobalStyle`
     font-display: fallback;
   }
 `;
-
-export const AppStyle = styled.div`
-  padding-top: 57px;
-  position: relative;
-`;
