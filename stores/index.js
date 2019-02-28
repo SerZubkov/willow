@@ -1,1 +1,0 @@
-export { getExampleStore } from './Example';
