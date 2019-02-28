@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 
+import { Router } from '../../../../routes';
+
 import {
   Wrapper,
   Item,
   LinkText,
   Text,
   ItemBlock,
-  ImageWrapper
+  ImageWrapper,
+  MenuWrapper,
 } from './Menu.styles';
 import { BigLink } from '../../../../components/BigLink';
 import { SmallLink } from '../../../../components/SmallLink';
@@ -25,10 +28,15 @@ class Menu extends Component {
     }
   };
 
+  handleClickMenu = params => {
+    Router.pushRoute(params);
+    this.onMouseChange(false);
+  };
+
   imageRender = () => {
     return (
       <ImageWrapper>
-        <img src="./static/mens.jpg" alt="new" />
+        <img src="/static/mens.jpg" alt="new" />
       </ImageWrapper>
     );
   };
@@ -36,17 +44,20 @@ class Menu extends Component {
   render() {
     const { data, name } = this.props;
     return (
-      <div
+      <MenuWrapper
         onMouseEnter={() => this.onMouseChange(true)}
         onMouseLeave={() => this.onMouseChange(false)}
       >
         <ItemBlock isActiveMenu={this.isActiveMenu}>{name}</ItemBlock>
         {this.isActiveMenu && data && data.length !== 0 ? (
-          <Wrapper isActiveMenu={this.isActiveMenu}>
+          <Wrapper>
             <Item>
               {data.allLink &&
                 data.allLink.map(({ id, name }) => (
-                  <LinkText>
+                  <LinkText
+                    key={id}
+                    onClick={() => this.handleClickMenu(`/collections/${id}`)}
+                  >
                     <BigLink key={id}>{name}</BigLink>
                   </LinkText>
                 ))}
@@ -55,8 +66,11 @@ class Menu extends Component {
               <Text>Товары по категориям</Text>
               {data.category &&
                 data.category.map(({ id, name }) => (
-                  <LinkText>
-                    <SmallLink key={id}>{name}</SmallLink>
+                  <LinkText
+                    key={id}
+                    onClick={() => this.handleClickMenu(`/collections/${id}`)}
+                  >
+                    <SmallLink>{name}</SmallLink>
                   </LinkText>
                 ))}
             </Item>
@@ -64,15 +78,18 @@ class Menu extends Component {
               <Text>Товары по коллекциям</Text>
               {data.collection &&
                 data.collection.map(({ id, name }) => (
-                  <LinkText>
-                    <SmallLink key={id}>{name}</SmallLink>
+                  <LinkText
+                    key={id}
+                    onClick={() => this.handleClickMenu(`/collections/${id}`)}
+                  >
+                    <SmallLink>{name}</SmallLink>
                   </LinkText>
                 ))}
             </Item>
             {this.imageRender()}
           </Wrapper>
         ) : null}
-      </div>
+      </MenuWrapper>
     );
   }
 }

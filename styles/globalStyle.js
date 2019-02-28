@@ -46,6 +46,17 @@ export const GlobalStyle = createGlobalStyle`
     touch-action: auto;
   }
 
+  a {
+    color: #999;
+    text-decoration: none;
+    transition: 0.1s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
   html {
     font-size: 62.5%;
     line-height: 1.15;
@@ -104,6 +115,16 @@ export const GlobalStyle = createGlobalStyle`
     border: 0;
   }
 
+  h1 {
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: 0.025rem;
+  }
+
   @font-face {
     font-family: 'Montserrat';
     font-style: normal;
@@ -118,6 +139,15 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 500;
     src: local('Montserrat Medium'), local('Montserrat-Medium'), url('../static/fonts/Montserrat-Medium.woff') format('woff2');
+    font-display: fallback;
+  }
+
+  /* cyrillic-ext */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'), url('../static/fonts/Montserrat-SemiBold.woff') format('woff2');
     font-display: fallback;
   }
 

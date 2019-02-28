@@ -4,7 +4,7 @@ import { defaultStyle } from '../../../styles/defaultStyle';
 
 export const Wrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: 4px;
   right: ${defaultStyle.paddingBase};
   height: 57px;
   display: flex;
@@ -16,7 +16,6 @@ export const Wrapper = styled.div`
 
   @media (max-width: 990px) {
     height: 50px;
-    top: -50px;
   }
 `;
 

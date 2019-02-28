@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Router from 'next/router';
 import ErrorPage from 'next/error';
 import App, { Container } from 'next/app';
+// @ts-ignore
 import { withMobx } from 'next-mobx-wrapper';
 import { configure } from 'mobx';
 import NProgress from 'nprogress';
@@ -13,6 +14,7 @@ import Header from '../core/Header/Header';
 import Sidebar from '../core/Sidebar/Sidebar';
 import { GlobalStyle } from '../styles/globalStyle';
 import AppStyle from '../features/App/App';
+import Footer from '../core/Footer/Footer';
 
 const isServer = !process.browser;
 
@@ -51,6 +53,7 @@ class MyApp extends App {
               <Fragment>
                 <Header />
                 <Component {...pageProps} />
+                <Footer />
               </Fragment>
             </AppStyle>
           </Sidebar>

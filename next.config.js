@@ -1,17 +1,20 @@
 const withCSS = require('@zeit/next-css');
+const withTypescript = require('@zeit/next-typescript');
 
-module.exports = withCSS({
-  webpack: config => {
-    // Fixes npm packages that depend on `fs` module
-    config.node = {
-      fs: 'empty'
-    };
+module.exports = withTypescript(
+  withCSS({
+    webpack: config => {
+      // Fixes npm packages that depend on `fs` module
+      config.node = {
+        fs: 'empty'
+      };
 
-    config.module.rules.push({
-      test: /\.svg$/,
-      loader: 'svg-sprite-loader'
-    });
+      config.module.rules.push({
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader'
+      });
 
-    return config;
-  }
-});
+      return config;
+    }
+  })
+);

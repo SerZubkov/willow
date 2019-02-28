@@ -7,10 +7,24 @@ import Categories from './Categories/Categories';
 import ControlLeft from './ControlLeft/ControlLeft';
 
 import { headerData } from './Header.mock';
+import { TLayoutStore } from '../../stores/Layout.store';
+
+type TMapStateToProps = {
+  layoutStore: TLayoutStore;
+  categoriesStore: TLayoutStore;
+};
+
+const mapStateToProps = ({ layoutStore }: TMapStateToProps) => ({
+  leftSidebar: layoutStore.leftSidebar,
+  content: layoutStore.content
+});
+
+type TInternalProps = ReturnType<typeof mapStateToProps>;
+type TProps = TInternalProps;
 
 @inject('categoriesStore', 'layoutStore')
 @observer
-class Header extends Component {
+class Header extends Component<TProps> {
   componentDidMount() {
     const {
       categoriesStore: { setCategories }

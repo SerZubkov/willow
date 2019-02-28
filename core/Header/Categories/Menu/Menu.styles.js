@@ -29,6 +29,12 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const MenuWrapper = styled.div`
+  @media (max-width: 990px) {
+    display: none;
+  }
+`;
+
 export const ImageWrapper = styled.div`
   position: absolute;
   top: 0;

@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 import { defaultStyle } from '../../styles/defaultStyle';
 
-export const Wrapper = styled.div`
+type TWrapper = {
+  absoluteActive: boolean;
+  topBody: string;
+};
+
+export const Wrapper = styled.div<TWrapper>`
   position: ${({ absoluteActive }) => (absoluteActive ? 'absolute' : 'fixed')};
   left: 0;
   right: 0;
@@ -15,15 +20,13 @@ export const Wrapper = styled.div`
   padding: 0 ${defaultStyle.paddingBase};
   align-items: center;
   background-color: white;
+  z-index: 100;
 
   @media (max-width: 1400px) {
     padding: 0 ${defaultStyle.paddingMd};
   }
 
   @media (max-width: 990px) {
-    margin-top: 50px;
-    height: 50px;
-    border-bottom: 1px solid white;
   }
 `;
 
@@ -42,11 +45,10 @@ export const Logo = styled.div`
   }
 
   @media (max-width: 990px) {
-    height: 50px;
+    height: 56px;
     width: 100%;
     left: 0;
-    top: -50px;
-    border-bottom: 1px solid ${defaultStyle.borderColor};
+    top: 0;
     background-color: white;
   }
 `;
